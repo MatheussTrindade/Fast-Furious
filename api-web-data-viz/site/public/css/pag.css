@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.tela {
+    display: block;
+    width: 100%;
+    height: 617px;
+    /* background-image: url(image/home_fast2.jpg); */
+    background-image: url(../image/home_fast2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 75%;
+    font-size: 55px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.80);
+    font-family: "Bio Rhyme", serif;
+    /* font-family: Mukta,sans-serif; */
+    letter-spacing: 5px;
+}
+
+a {
+    text-decoration: none;
+}

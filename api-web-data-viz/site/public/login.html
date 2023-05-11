@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>F&F | Login</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="icon" href="./image/icon2.png">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navegation">
+
+        <head>
+            <nav class="nav_one">
+                <div class="img_navegacao">
+                    <img class="footer_img" src="" alt="">
+                    <div class="navegacao1">
+                        <ul>
+                            <li><a class="nav_a" href="index.html">HOME</a></li>
+                            <!-- <li><a class="nav_a" href="#sobre">SOBRE</a></li> -->
+                            <li><a class="nav_a" href="quiz/index.html">QUIZ</a></li>
+                            <li><a class="nav_a" href="login.html">LOGIN</a></li>
+                        </ul>
+                        <!-- </div>
+                        <div class="navegacaoUsu">
+                        <ul class="ulUsu">
+                            <li><a class="nav_a" href="cadastro.html">CADASTRO</a></li>
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <hr>
+        </head>
+
+    <!-- Fim Head -->
+
+    <div class="login">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="main">
+            <div class="cadastro">
+                <div class="cadastro_main">
+                    <div class="tittle">
+                        <h2>FAÇA LOGIN</h2>
+                    </div>
+                    <div class="campos">
+                        <input type="email" name="" id="email_input" placeholder="Email">
+                        <input type="password" name="" id="senha_input" placeholder="Senha">
+                        <div class="conect">
+                            <input class="checkbox" type="checkbox" name="" id=""><span class="save">Salvar informações
+                                de login</span>
+                        </div>
+                        <a href=""><span class="loading">Esqueceu a senha?</span></a>
+                    </div>
+                    <div class="div_button">
+                        <a href="" class="button item1"><button class="button_criar"
+                                onclick="entrar()">ENTRAR</button></a>
+                    </div>
+                    <div class="contaNew">
+                        <span>Não tem uma conta?</span>
+                        <a href="cadastro.html" class="button2 item2"><button class="button_criar">CRIAR
+                                CONTA</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer inicio-->
+    <!-- <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div> -->
+    <!--footer fim-->
+
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Confira os campos !)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

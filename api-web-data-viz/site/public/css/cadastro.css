@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav_one {
+    display: flex;
+    /* background-color: #777; */
+    font-family: 'Syne', sans-serif;
+    justify-content: end;
+}
+
+.img_login {
+    width: 30px;
+}
+
+.img_navegacao {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    height: 60px;
+    align-items: center;
+    margin-right: 45px;
+}
+
+li a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    padding: 4px;
+}
+
+.nav_a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #000;
+    border-radius: 4px;
+    transition: .4s ease-in-out;
+}
+
+.nav_a:hover::after {
+    width: 100%;
+}
+
+hr {
+    background-color: #777;
+    height: 0.1px;
+}
+
+.footer_img {
+    width: 110px;
+}
+
+body {
+    /* background-image: url(image/toretto_background.jpg); */
+    background-image: url(../image/toretto_background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* filter: blur(1px); */
+    /* background-color: rgba(100, 100, 100, 00.1px); */
+}
+
+.cadastro {
+    display: flex;
+    width: 349px;
+    background: rgba(0, 0, 0, 0.20);
+    height: 509px;
+    border-radius: 50px;
+    margin-right: 100px;
+}
+
+.cadastro_main {
+    display: flex;
+    width: 383px;
+    height: 492px;
+    border-radius: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 30px 0 0 0;
+}
+
+.tittle {
+    display: flex;
+    justify-content: center;
+}
+
+
+.tittle h2 {
+    color: #000;
+    display: flex;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 4px;
+    padding: 35px 0 0 0;
+}
+
+.campos {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 190px;
+    justify-content: center;
+    align-items: center;
+    padding: 34px 0 0 0;
+}
+
+input {
+    padding: 6px;
+    border-radius: 5px;
+    width: 215px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.50);
+    color: #FFF;
+}
+
+.campos span {
+    color: #FFF;
+    font-size: 11px;
+    display: flex;
+    padding: 0 165px 0 0;
+}
+
+
+.button_criar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.0);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: #FFF;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 7px 58px;
+    /* padding: 7px 77px; */
+    color: #FFF;
+    border: 1px solid #000;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 37px;
+
+}
+
+.button2 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #FFF;
+    border: 1px solid #000;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 212px;
+    height: 30px;
+}
+
+.button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    z-index: -1;
+    transition: all 1s;
+}
+
+.item1::before {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-45deg);
+    /* transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in; */
+}
+
+.item1:hover::before {
+    height: 550%;
+    /* transform: scaleX(1);
+    transform-origin: left; */
+}
+
+.button2::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    z-index: -1;
+    transition: all 1s;
+}
+
+.item2::before {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-45deg);
+    /* transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in; */
+}
+
+.item2:hover::before {
+    height: 550%;
+    /* transform: scaleX(1);
+    transform-origin: left; */
+}
+
+.div_button {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.campos .loading {
+    font-size: 14px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 0 0 0;
+}
+
+
+.checkbox {
+    width: 36px;
+}
+
+.conect {
+    display: flex;
+}
+
+.campos .save {
+    color: #000;
+    font-size: 12px;
+    display: flex;
+    padding: 0 47px 0 0;
+    font-family: sans-serif;
+}
+
+.contaNew {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 27px 0 0 0;
+    gap: 20px;
+}
+
+.contaNew span {
+    text-align: center;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navegacao1 {
+    display: flex;
+    justify-content: center;
+}
+
+.button_criar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.0);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.select {
+    background: rgba(0, 0, 0, 0.50);
+    color: #FFF;
+    border-radius: 7px;
+    height: 30px;
+    width: 231px;
+}

@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav_one {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Syne', sans-serif;
+    justify-content: end;
+}
+
+.img_login {
+    width: 30px;
+}
+
+.img_navegacao {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    height: 60px;
+    align-items: center;
+    margin-right: 45px;
+}
+
+li a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    padding: 4px;
+    font-weight: 600;
+}
+
+.nav_a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #000;
+    border-radius: 4px;
+    transition: .4s ease-in-out;
+}
+
+.nav_a:hover::after {
+    width: 100%;
+}
+
+.nav_ac:hover {
+    background-color: #000;
+    color: #777;
+    transition: .2s;
+    border-radius: 15px;
+    padding: 8px 8px 8px 8px;
+}
+
+.nav_ac {
+    background-color: #777;
+    border-radius: 15px;
+    transition: .9s;
+    padding: 8px 8px 8px 8px;
+}
+
+.nav_al {
+    background-color: #777;
+    border-radius: 15px;
+    transition: .9s;
+    padding: 8px 8px 8px 8px;
+}
+
+.nav_al:hover {
+    background-color: #000;
+    color: #777;
+    border-radius: 15px;
+    transition: .9s;
+    padding: 8px 8px 8px 8px;
+}
+
+hr {
+    background-color: #777;
+    height: 0.1px;
+}
+
+/* Fim do css do header */
+
+.background {
+    /* background-image: url(image/home_fast.jpg); */
+    background-image: url(../image/home_fast.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.home {
+    height: 490px;
+    /* padding: 170px 84px; */
+    padding: 118px 40px;
+    position: relative;
+}
+
+/* .home::after {
+    content: ' ';
+    background-image: url("home_fast.jpg");
+    background-size: cover;
+    width: 90%;
+    height: 450px;
+    position: absolute;
+    margin-top: 20px;
+} */
+
+.home h1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 60px;
+    color: #494C4E;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.sobre {
+    /* background-image: url(image/teste_fast_and_furious_copia1.jpeg); */
+    background-image: url(../image/teste_fast_and_furious_copia1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 50px;
+    height: 570px;
+}
+
+.sobre h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 48px;
+    color: #000;
+    margin: 10px 91px;
+}
+
+.sobre h3 span {
+    color: #494C4E;
+}
+
+.sobre h4 {
+    color: #494949;
+    font-family: 'Jost', sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    width: 555px;
+    text-align: justify;
+    margin: 30px 10px;
+}
+
+.text-sobre {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .main_album :hover {
+    transform: scale(1.05)
+} */
+
+.footer {
+    padding: 3% 3%;
+    background-color: #000000;
+    height: auto;
+}
+
+.footer_fim {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: #FFF;
+}
+
+.frase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 54px 50px; */
+    /* margin-top: 150px; */
+}
+
+.frase span {
+    color: #494C4E;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    /* width: 90%; */
+    text-align: justify;
+    margin: 30px 10px;
+}
+
+.frase .by_autor {
+    font-size: 19px;
+    color: #494949;
+    font-weight: 600;
+}
+
+.logo {
+    width: 450px;
+}
+
+.area_logo {
+    display: flex;
+    justify-content: center;
+}
