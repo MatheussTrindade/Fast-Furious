@@ -8,7 +8,7 @@
 
     <title>F&F | Login</title>
 
-    <script src="./js/funcoes.js"></script>
+    <!-- <script src="./js/funcoes.js"></script> -->
 
     <link rel="icon" href="./image/icon2.png">
     <link rel="stylesheet" href="./css/login.css">
@@ -44,51 +44,52 @@
             <hr>
         </head>
 
-    <!-- Fim Head -->
+        <!-- Fim Head -->
 
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+        <div class="login">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
             </div>
-        </div>
-        <div class="main">
-            <div class="cadastro">
-                <div class="cadastro_main">
-                    <div class="tittle">
-                        <h2>FAÇA LOGIN</h2>
-                    </div>
-                    <div class="campos">
-                        <input type="email" name="" id="email_input" placeholder="Email">
-                        <input type="password" name="" id="senha_input" placeholder="Senha">
-                        <div class="conect">
-                            <input class="checkbox" type="checkbox" name="" id=""><span class="save">Salvar informações
-                                de login</span>
+            <div class="main">
+                <div class="cadastro">
+                    <div class="cadastro_main">
+                        <div class="tittle">
+                            <h2>FAÇA LOGIN</h2>
                         </div>
-                        <a href=""><span class="loading">Esqueceu a senha?</span></a>
-                    </div>
-                    <div class="div_button">
-                        <a href="" class="button item1"><button class="button_criar"
-                                onclick="entrar()">ENTRAR</button></a>
-                    </div>
-                    <div class="contaNew">
-                        <span>Não tem uma conta?</span>
-                        <a href="cadastro.html" class="button2 item2"><button class="button_criar">CRIAR
-                                CONTA</button></a>
+                        <div class="campos">
+                            <input type="email" name="" id="email_input" placeholder="Email">
+                            <input type="password" name="" id="senha_input" placeholder="Senha">
+                            <div class="conect">
+                                <input class="checkbox" type="checkbox" name="" id=""><span class="save">Salvar
+                                    informações
+                                    de login</span>
+                            </div>
+                            <a href=""><span class="loading">Esqueceu a senha?</span></a>
+                        </div>
+                        <div class="div_button">
+                            <a href="" class="button item1"><button class="button_criar"
+                                    onclick="entrar()">ENTRAR</button></a>
+                        </div>
+                        <div class="contaNew">
+                            <span>Não tem uma conta?</span>
+                            <a href="cadastro.html" class="button2 item2"><button class="button_criar">CRIAR
+                                    CONTA</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--footer inicio-->
-    <!-- <div class="footer">
+        <!--footer inicio-->
+        <!-- <div class="footer">
         <div class="container">
             <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
             <span class="version">v1.0.0</span>
         </div>
     </div> -->
-    <!--footer fim-->
+        <!--footer fim-->
 
 </body>
 
@@ -98,19 +99,17 @@
 
 
     function entrar() {
-        aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
+            cardErro.style.display = "flex"
             mensagem_erro.innerHTML = "(Confira os campos !)";
-            finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            // setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -141,7 +140,7 @@
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
 
@@ -149,6 +148,14 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
+                setInterval((e) => {
+
+                    mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o login!";
+                    cardErro.style.display = "block"
+
+                }, 1000);
+
+                
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);

@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>F&F | Cadastro</title>
+    <title>Cadastro | F&F</title>
 
 
-    <script src="./js/funcoes.js"></script>
-
+    <!-- <script src="./js/funcoes.js"></script> -->
 
     <link rel="icon" href="./image/icon2.png">
     <link rel="stylesheet" href="./css/cadastro.css">
@@ -71,7 +70,7 @@
                                     <input type="password" name="" id="senha_input" placeholder="Senha">
                                     <input type="password" name="" id="confirmacao_senha_input"
                                         placeholder="Confirme sua Senha">
-                                    <select name="" class="select" id="select_perso">
+                                    <select name="" class="select" id="select">
                                         <option value="">Escolha seu persongem Favorito</option>
                                         <option value="">Brian O'Conner</option>
                                         <option value="">Dominic Toretto</option>
@@ -123,7 +122,6 @@
 
 <script>
     function cadastrar() {
-        aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -131,11 +129,11 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var escolhaVar = select_perso.value;
+        var escolhaVar = select.value;
 
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || escolhaVar == "") {
-            cardErro.style.display = "block"
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "flex"
             mensagem_erro.innerHTML = "(Confira os campos !)";
 
             return false;
