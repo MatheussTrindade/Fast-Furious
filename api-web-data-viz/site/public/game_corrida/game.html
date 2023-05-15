@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <div id="corpo">
+        <img class="car" id="car" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">
+    </div>
+    <div class="buttons">
+        <button class="startLock" onclick="carro.ligar()">
+            Ligar o carro
+        </button>
+        <button class="fastCar" onclick="carro.movimentar()">
+            Correr
+        </button>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var distanciaImagem = 0;
+
+    var carro = {
+        cor: "Amarelo",
+        tipoCarro: "Esportivo",
+        movimento: false,
+        ligado: false,
+        check_ligado: function () {
+            return this.ligado == true
+        },
+        capacidadeTanque: 250,
+        qtdCompustivel: 100,
+        tipoCombustivel: "Gasolina",
+        kmPercorrido: 0,
+        cambio: "automatico",
+        ligar: function () {
+            if (this.ligado == false) {
+                console.log(`Carro desligado...ligando`);
+                console.log(`Carro ligado`);
+                corpo.innerHTML = `<img  style="position: absolute; left: ${distanciaImagem}px; top: 120px;" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">`
+                this.ligado = true;
+            } else {
+                console.log(`Carro já ligado!`);
+            }
+        },
+        movimentar: function () {
+
+            if (this.ligado == false) {
+                console.log("Carro desligado. Ligue o Carro!!");
+            } else if (this.qtdCombustivel - 25 <= 0) {
+                console.log(`Combustivel insuficiente para uma Corrida!!! É necessário mais que 25 de combustivel para efetuar uma Corrida!!`)
+                console.log(`Quantidade atual: ${this.qtdCombustivel}`)
+            }
+            else {
+                console.log(`Andando...`)
+                this.kmAndado += 100
+                this.qtdCombustivel = this.qtdCombustivel - 25
+                console.log(`Andei no total ${this.kmAndado}KM`)
+                console.log(`Quantidade atual de combustivel: ${this.qtdCombustivel}`)
+
+                distanciaImagem += 50
+                corpo.innerHTML = `<img  style="position: absolute; margin-left: ${distanciaImagem}px; top: 120px;" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">`
+
+            }
+        },
+
+
+    }
+</script>

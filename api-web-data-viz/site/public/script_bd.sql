@@ -13,3 +13,5 @@ P_escolha varchar(50)
 select * from usuario;
 
 drop table usuario;
+
+truncate table usuario;

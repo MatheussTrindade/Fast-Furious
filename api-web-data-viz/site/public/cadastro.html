@@ -70,19 +70,19 @@
                                     <input type="password" name="" id="senha_input" placeholder="Senha">
                                     <input type="password" name="" id="confirmacao_senha_input"
                                         placeholder="Confirme sua Senha">
-                                    <select name="" class="select" id="select">
+                                    <select name="select" class="select" id="select">
                                         <option value="">Escolha seu persongem Favorito</option>
-                                        <option value="">Brian O'Conner</option>
-                                        <option value="">Dominic Toretto</option>
-                                        <option value="">Gisele Harabor</option>
-                                        <option value="">Han Lue</option>
-                                        <option value="">Let</option>
-                                        <option value="">Luke Hobbs</option>
-                                        <option value="">Mia Toretto</option>
-                                        <option value="">Roman Pearce</option>
-                                        <option value="">Sean Boswell</option>
-                                        <option value="">Tej</option>
-                                        <option value="">Vince</option>
+                                        <option value="Brian">Brian O'Conner</option>
+                                        <option value="Dominic">Dominic Toretto</option>
+                                        <option value="Gisele">Gisele Harabor</option>
+                                        <option value="Han">Han Lue</option>
+                                        <option value="Let">Let</option>
+                                        <option value="Luke">Luke Hobbs</option>
+                                        <option value="Mia">Mia Toretto</option>
+                                        <option value="Roman">Roman Pearce</option>
+                                        <option value="Sean">Sean Boswell</option>
+                                        <option value="Tej">Tej</option>
+                                        <option value="Vince">Vince</option>
                                     </select>
                                 </div>
                                 <div class="div_button">
@@ -161,7 +161,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                cardErro.style.display = "flex";
 
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 

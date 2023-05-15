@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    overflow: hidden;
+}
+
+.container .lateral {
+    height: 100%;
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    background: #1327;
+    box-shadow: 1px 4px 11px rgba(0, 0, 0, .50);
+    border-radius: 3px;
+}
+
+.lateral .listaBaixo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lista a i {
+    font-size: 30px;
+}
+
+.navHeader {
+    display: flex;
+    flex-direction: column;
+    height: 175px;
+    width: 70%;
+    justify-content: space-between;
+    /* align-content: space-between; */
+    align-self: center;
+    gap: 30px;
+}
+
+.navHeader span {
+    font-size: 16px;
+    color: #7A7A7A;
+}
+
+.navHeader img {
+    width: 130px;
+}
+
+
+.navegacão {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+}
+
+.navegacão ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 0;
+}
+
+.navegacão ul li {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    list-style: none;
+
+
+}
+
+.navegacão ul li a {
+    display: flex;
+    align-items: center;
+    /* padding-left: 23px; */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 25px;
+    color: #282829;
+    /* gap: 15px; */
+    /* letter-spacing: 3px; */
+    width: 100%;
+    justify-content: center;
+}
+
+.navegacão ul li a .icone {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navegacão .destaque {
+    background-color: #1327;
+    border-radius: 16.55px;
+}
+
+.nomeNome {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.nomeNome span {
+    display: flex;
+    flex-direction: column;
+}
+
+.configNomeimg {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nomeNome span .config {
+    height: 10px;
+}
+
+.trindade a {
+    list-style: none;
+}
+
+.configgg {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.configgg a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.configgg a i {
+    font-size: 25px;
+    color: #959595;
+}
+
+.config {
+    list-style: none;
+}
+
+.usuario {
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* li a {
+    text-decoration: none;
+} */
+
+.configNomeimg {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nomeNome {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Fim do menu */
+
+.corpo {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    background: #f8f8ff;
+    align-items: center;
+}
+
+.corpo h1 {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    color: #000;
+    text-align: center;
+}
+
+.corpo h4 {
+display: flex;
+justify-content: center;
+padding: 10px 0 10px 0;
+color: #000;
+}
+
+.sobre_franquia span {
+    display: flex;
+    text-align: justify;
+    padding: 0 60px 0 60px;
+    align-items: center;
+    color: #282829;
+}
+
+.bilheteria h4 {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0 10px 0;
+    color: #000;
+}
+
+.bilheteria span {
+    display: flex;
+    text-align: justify;
+    padding: 0 60px 0 60px;
+    align-items: center;
+    color: #282829;
+}
+
+.curiosidades{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.curiosidades h4 {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    padding: 25px 0 10px 0;
+}
+
+.curiosidades span {
+    display: flex;
+    text-align: justify;
+    padding: 0 60px 0 60px;
+    align-items: center;
+    color: #282829;
+}
+
+.caixa_img {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 0 0;
+}
+
+#myChart {
+    width: 700px !important;
+    height: 350px !important;
+}
+
+.chart_box {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 0 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 72%;
+}
+
+.main span {
+    text-align: center;
+}
+
+.tittle {
+    text-align: center;
+}
+/* .corpo {
+    text-align: justify;
+} */
