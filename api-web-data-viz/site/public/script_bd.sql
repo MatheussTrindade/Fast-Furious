@@ -15,3 +15,4 @@ select * from usuario;
 drop table usuario;
 
 truncate table usuario;
+

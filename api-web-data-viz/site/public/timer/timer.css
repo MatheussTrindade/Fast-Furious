@@ -1,0 +1,30 @@
+body{
+    background-color: #000;
+}
+
+h1{
+    color: #fff;
+}
+
+div{
+    text-align: center;
+}
+
+button {
+    height: 2.2em;
+    width: 5.5em;
+    border: none;
+    color: #fff;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.start-btn{
+    background-color: green;
+}
+
+.stop-btn {
+    background-color: red;
+}
