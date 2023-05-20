@@ -5,36 +5,44 @@
 
 .nav_one {
     display: flex;
-    /* background-color: #777; */
-    font-family: 'Syne', sans-serif;
-    justify-content: end;
-}
-
-.img_login {
-    width: 30px;
-}
-
-.img_navegacao {
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.09);
+    font-family: 'Jost', sans-serif;
+    justify-content: space-around;
     align-items: center;
-    gap: 50px;
+    padding: 14px;
 }
+
 
 ul {
     display: flex;
     list-style: none;
-    gap: 35px;
+    gap: 25px;
     height: 60px;
     align-items: center;
-    margin-right: 45px;
+}
+
+.navHeader img {
+    width: 130px;
+    align-items: center;
+    display: flex;
+    margin-right: 25px;
+}
+
+.navHeader {
+    align-items: center;
+    display: flex;
+    font-family: 'Jost', sans-serif;    
 }
 
 li a {
     position: relative;
     text-decoration: none;
     color: #000;
-    font-weight: 600;
     padding: 4px;
+    font-weight: 600;
+    display: flex;
+    margin: 10px 15px;
+    align-items: center;
 }
 
 .nav_a::after {
@@ -46,21 +54,37 @@ li a {
     bottom: -5px;
     background-color: #000;
     border-radius: 4px;
-    transition: .4s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 .nav_a:hover::after {
     width: 100%;
 }
 
-hr {
-    background-color: #777;
-    height: 0.1px;
+
+.button_header {
+    font-family: 'Jost', sans-serif;
+    width: 130px;
+    height: 50px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, .2);
+    border: 1.5px solid rgba(0, 0, 0, .4);
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.footer_img {
-    width: 110px;
+.button_header:hover {
+    background-color: rgba(0, 0, 0, .4);
+    color: #000;
+    border-radius: 20px;
+    transition: .4s;
+    padding: 8px 8px 8px 8px;
 }
+
+/* fim do header */
+
 
 body {
     /* background-image: url(image/toretto_background.jpg); */
@@ -75,7 +99,7 @@ body {
     display: flex;
     width: 349px;
     background: rgba(0, 0, 0, 0.20);
-    height: 509px;
+    height: 499px;
     border-radius: 50px;
     margin-right: 100px;
     box-shadow: -4px 1px 11px 2px rgba(0, 0, 0, 0.30);
