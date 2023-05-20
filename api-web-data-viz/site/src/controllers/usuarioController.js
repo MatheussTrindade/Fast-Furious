@@ -67,8 +67,6 @@ function cadastrar(req, res) {
     var senha = req.body.senhaServer;
     var escolha = req.body.escolhaServer;
 
-    console.log("ESCOLHA" + escolha)
-
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -76,8 +74,8 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (escolha == undefined) {
-        res.status(400).send("Sua escolha está undefined!");
+    } else if(escolha == undefined) {
+        res.status(400).send("Sua escolha está undefined!")
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js

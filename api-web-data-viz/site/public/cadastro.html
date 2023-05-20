@@ -8,11 +8,11 @@
 
     <title>Cadastro | F&F</title>
 
+    <script src="./js/funcoes.js"></script>
 
-    <!-- <script src="./js/funcoes.js"></script> -->
 
     <link rel="icon" href="./image/icon2.png">
-    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -21,8 +21,9 @@
 
 <body>
 
-    <div class="navegation">
-        <!-- INICIO DO HEADER -->
+    <div>
+
+        <!--header inicio-->
 
         <head class="header">
             <nav class="nav_one">
@@ -45,7 +46,7 @@
             </nav>
             <hr>
         </head>
-        <!-- FIM DO HEADER -->
+        <!--header fim-->
 
 
         <div class="login">
@@ -54,12 +55,10 @@
                     <span id="mensagem_erro"></span>
                 </div>
             </div>
-
             <div class="container">
                 <div class="card card-cadastro">
                     <div class="main">
                         <div class="cadastro">
-                            <!-- <img class="img" src="image/capa2.jpg" alt=""> -->
                             <div class="cadastro_main">
                                 <div class="tittle">
                                     <h2>CRIAR CONTA</h2>
@@ -86,9 +85,8 @@
                                     </select>
                                 </div>
                                 <div class="div_button">
-                                    <a href="" class="button item1"><button onclick="cadastrar()"
-                                            class="button_criar">CRIAR
-                                            CONTA</button></a>
+                                    <button class="button item1" onclick="cadastrar()" class="button_criar">CRIAR
+                                        CONTA</button>
                                 </div>
                                 <div class="contaNew">
                                     <span>Já tem conta?</span>
@@ -98,22 +96,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="div_erros_login"></div>
                 </div>
-
-
-                <div id="div_erros_login"></div>
             </div>
         </div>
-    </div>
 
-    <!--footer inicio-->
-    <!-- <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div> -->
-    <!--footer fim-->
+        <!--footer inicio-->
+        <!-- <div class="footer">
+            <div class="container">
+                <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+                <span class="version">v1.0.0</span>
+            </div>
+        </div> -->
+        <!--footer fim-->
+    </div>
 
 
 </body>
@@ -122,6 +119,7 @@
 
 <script>
     function cadastrar() {
+        // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -131,11 +129,11 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var escolhaVar = select.value;
 
-
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "flex"
-            mensagem_erro.innerHTML = "(Confira os campos !)";
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
+            finalizarAguardar();
             return false;
         }
         else {
@@ -169,8 +167,8 @@
                     window.location = "login.html";
                 }, "2000")
 
-                // limparFormulario();
-                // finalizarAguardar();
+                limparFormulario();
+                finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }

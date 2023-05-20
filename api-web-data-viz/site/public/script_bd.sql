@@ -16,3 +16,9 @@ drop table usuario;
 
 truncate table usuario;
 
+create table minegame (
+fkUsuario int,
+tempo time,
+constraint fkUsuario foreign key (fkUsuario) references usuario (idUsuario)
+);
+

@@ -65,7 +65,7 @@
             <div class="trindade">
                 <div class="configNomeimg">
                     <div class="nomeNome">
-                        <a href="">
+                        <a onclick="limparSessao()" href="">
                             <img src="image/saida.png" style="width: 20px;">
                         </a>
                         <div class="usuario">
@@ -77,9 +77,9 @@
                         <a href="#">
                             <i class="uil uil-setting"></i>
                         </a>
-                        <a href="../home/login.html">
-                            <i class="uil uil-signout" style="color: #C63535;"></i>
-                        </a>
+                        <!-- <a href="../home/login.html"> -->
+                            <!-- <i class="uil uil-signout" style="color: #C63535;"></i> -->
+                        <!-- </a> -->
                     </div>
                 </div>
             </div>
@@ -319,6 +319,15 @@
         document.getElementById('myChart'),
         config
     );
+</script>
+
+<script>
+    function limparSessao() {
+
+        sessionStorage.clear();
+
+        window.location = `index.html`
+    }
 </script>
 
 </html>

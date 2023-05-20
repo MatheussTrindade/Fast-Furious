@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>F&F | Login</title>
+    <title>Login | F&F</title>
 
-    <!-- <script src="./js/funcoes.js"></script> -->
+    <script src="./js/funcoes.js"></script>
 
     <link rel="icon" href="./image/icon2.png">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -21,6 +21,8 @@
 <body>
 
     <div class="navegation">
+
+        <!--Header-->
 
         <head>
             <nav class="nav_one">
@@ -43,6 +45,7 @@
             </nav>
             <hr>
         </head>
+
 
         <!-- Fim Head -->
 
@@ -69,8 +72,7 @@
                             <a href=""><span class="loading">Esqueceu a senha?</span></a>
                         </div>
                         <div class="div_button">
-                            <a href="" class="button item1"><button class="button_criar"
-                                    onclick="entrar()">ENTRAR</button></a>
+                            <button class="button item1" class="button_criar" onclick="entrar()">ENTRAR</button>
                         </div>
                         <div class="contaNew">
                             <span>Não tem uma conta?</span>
@@ -82,14 +84,18 @@
             </div>
         </div>
 
-        <!--footer inicio-->
-        <!-- <div class="footer">
+    </div>
+
+    <!--footer inicio-->
+    <!-- <div class="footer">
         <div class="container">
             <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
             <span class="version">v1.0.0</span>
         </div>
     </div> -->
-        <!--footer fim-->
+    <!--footer fim-->
+    <!-- </div> -->
+
 
 </body>
 
@@ -99,17 +105,19 @@
 
 
     function entrar() {
+        // aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "flex"
-            mensagem_erro.innerHTML = "(Confira os campos !)";
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
             return false;
         }
         else {
-            // setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -140,7 +148,7 @@
 
                     setTimeout(function () {
                         window.location = "pagina1.html";
-                    }, 2000); // apenas para exibir o loading
+                    }, 1000); // apenas para exibir o loading
 
                 });
 
@@ -148,17 +156,9 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                setInterval((e) => {
-
-                    mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o login!";
-                    cardErro.style.display = "block"
-
-                }, 1000);
-
-                
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 

@@ -169,7 +169,7 @@ input {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     margin-top: 37px;
-
+    background: rgba(0, 0, 0, 0.0);
 }
 
 .button2 {
@@ -314,36 +314,50 @@ a {
     width: 231px;
 }
 
-.card_erro #mensagem_erro {
-    font-weight: 500;
-    font-size: 20px;
+#div_erros_login {
+    display: none
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .card_erro {
     display: none;
     background-color: #fff;
     color: black;
-    width: 230px;
+    width: 229px;
     position: fixed;
     border-radius: 4px;
-    border: #777 3px solid;
-    padding: 10px;
+    border: #1327 3px solid;
+    padding: 3px;
     margin-right: 10%;
 }
 
-.card_login {
-    display: flex;
-    flex-direction: column;
-    width: 450px;
-    height: 450px;
-    background-color: rgb(235, 235, 235);
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.4);
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .alerta_erro {
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 229px;
+    position: fixed;
+    border-radius: 4px;
+    border: #1327 3px solid;
+    padding: 3px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }
