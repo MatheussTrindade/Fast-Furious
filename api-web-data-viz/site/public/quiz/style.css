@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(17, 17, 78, 1)); */
+  background-image: url(../image/background_quiz_teste.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body h2 {
+  color: #FF6600;
+  font-size: 27px;
+  background-color: #FFF;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  font: bold;
+  font-weight: 600;
+}
+
+main {
+  /* background-color: white; */
+  background: rgba(255, 255, 255, 0.50);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.spnQtd {
+  text-align: end;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  width: 100%;
+  text-align: start;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #FF6600;
+  color: white;
+  font: bold;
+  font-weight: 600;
+}
+
+.finish {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.finish button {
+  text-align: center;
+}
+
+.question {
+  font-size: 20px;
+  font: bold;
+  font-weight: 600;
+}
+
+#div_erros_login {
+  display: none
+}
+
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 229px;
+  position: fixed;
+  border-radius: 4px;
+  border: #FF6600 3px solid;
+  font-family: 'poppins', sans-serif;
+  padding: 3px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.alerta_erro {
+  display: flex;
+  justify-content: end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 229px;
+  position: fixed;
+  border-radius: 4px;
+  border: #FF6600 3px solid;
+  font-family: 'poppins', sans-serif;
+  padding: 3px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+  font-weight: 500;
+  font-size: 20px;
+}

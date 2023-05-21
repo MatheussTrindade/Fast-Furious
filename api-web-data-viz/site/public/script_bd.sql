@@ -17,8 +17,22 @@ drop table usuario;
 truncate table usuario;
 
 create table minegame (
+idMinegame int primary key auto_increment,
 fkUsuario int,
 tempo time,
 constraint fkUsuario foreign key (fkUsuario) references usuario (idUsuario)
 );
+
+select * from minegame;
+drop table minegame;
+
+create table quiz (
+idQuiz int primary key auto_increment,
+fkUsu int,
+resultado varchar(7),
+constraint fkUsu foreign key (fkUsu) references usuario (idUsuario)
+);
+
+select * from quiz;
+drop table quiz;
 
