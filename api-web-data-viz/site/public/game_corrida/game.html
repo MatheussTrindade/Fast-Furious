@@ -14,14 +14,21 @@
         <img class="car" id="car" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">
     </div>
     <div class="buttons">
-        <button class="startLock" onclick="carro.ligar()">
-            Ligar o carro
-        </button>
-        <button class="fastCar" onclick="carro.movimentar()">
-            Correr
-        </button>
+
+        <div class="main">
+            <h1 id="timer">00:00:00</h1>
+            <h2>Timer</h2>
+            <!-- <button class="start-btn" onclick="start()">Iniciar</button> -->
+            <!-- <button class="stop-btn" onclick="stopTime()">Parar</button> -->
+        </div>
+        <div class="inferior">
+            <img src="src/startLock.png" alt="" width="70px" onclick="carro.ligar()">
+            <img src="src/acelerador.png" alt="" width="70px" onclick="carro.movimentar()">
+        </div>
 
     </div>
+
+    <script src="../timer/timer.js"></script>
 
 </body>
 
@@ -39,7 +46,7 @@
             return this.ligado == true
         },
         capacidadeTanque: 250,
-        qtdCompustivel: 100,
+        qtdCombustivel: 250,
         tipoCombustivel: "Gasolina",
         kmPercorrido: 0,
         cambio: "automatico",
@@ -49,6 +56,7 @@
                 console.log(`Carro ligado`);
                 corpo.innerHTML = `<img  style="position: absolute; left: ${distanciaImagem}px; top: 120px;" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">`
                 this.ligado = true;
+                start()
             } else {
                 console.log(`Carro já ligado!`);
             }
@@ -64,13 +72,18 @@
             else {
                 console.log(`Andando...`)
                 this.kmAndado += 100
-                this.qtdCombustivel = this.qtdCombustivel - 25
+                this.qtdCombustivel = this.qtdCombustivel - 14
                 console.log(`Andei no total ${this.kmAndado}KM`)
                 console.log(`Quantidade atual de combustivel: ${this.qtdCombustivel}`)
-
-                distanciaImagem += 50
+                // 1100px até a linha de chegada
+                distanciaImagem += 60
                 corpo.innerHTML = `<img  style="position: absolute; margin-left: ${distanciaImagem}px; top: 120px;" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">`
-
+                if(carro.qtdCombustivel > 12) {
+                    // start()
+                    console.log(`Corra mais rapido`)
+                } else {
+                    stopTime()
+                }
             }
         },
 

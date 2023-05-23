@@ -84,3 +84,92 @@ li a {
 }
 
 /* fim do header */
+
+body {
+    background-color: #777;
+}
+
+.container {
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 30px;
+    padding: 15px 0 15px 0;
+}
+
+.caixa_imgs {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 0 15px 0;
+}
+
+.imagens {
+    border-radius: 30px;
+}
+
+.corpo {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    padding: 25px 0 25px 0;
+}
+
+.texto h2 {
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.texto .p1 {
+    display: flex;
+    justify-content: center;
+}
+
+.texto {
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 45px 25px 45px;
+    text-align: justify;
+    gap: 10px;
+    font-size: 17px;
+}
+
+
+/* footer */
+.footer {
+    padding: 3% 3%;
+    background-color: #000000;
+    height: auto;
+}
+
+.footer_fim {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: #FFF;
+}
+
+.frase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frase span {
+    color: #494C4E;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: justify;
+    margin: 30px 10px;
+}
+
+.frase .by_autor {
+    font-size: 19px;
+    color: #494949;
+}
+
+/* fim footer */

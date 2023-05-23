@@ -19,6 +19,7 @@ body {
     /* justify-content: center; */
     /* align-items: center; */
 }
+
 .car {
     left: 0;
     margin-top: 120px;
@@ -27,8 +28,48 @@ body {
 .buttons {
     display: flex;
     width: 100%;
-    justify-content: center;
     align-items: end;
     padding: 0 0px 50px 0;
-    gap: 50px;
+    gap: 100px;
+}
+
+.main h1 {
+    color: #FFF;
+}
+
+.main h2 {
+    color: #fff;
+    font-family: 'Jost', sans-serif;    
+}
+
+.main {
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 20px;
+    width: 180px;
+    height: 65px;
+}
+
+.start-btn {
+    background-color: green;
+}
+
+.stop-btn {
+    background-color: red;
+}
+
+button {
+    height: 2.2em;
+    width: 5.5em;
+    border: none;
+    color: #fff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.inferior {
+    gap: 40px;
+    display: flex;
 }

@@ -10,6 +10,7 @@ function start() {
 }
 
 function stopTime() {
+    
     clearInterval(interval)
     sec = 0
     min = 0
