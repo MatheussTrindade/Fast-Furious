@@ -27,7 +27,7 @@ body {
 
 .buttons {
     display: flex;
-    width: 100%;
+    width: 200%;
     align-items: end;
     padding: 0 0px 50px 0;
     gap: 100px;
@@ -72,4 +72,10 @@ button:hover {
 .inferior {
     gap: 40px;
     display: flex;
+}
+
+.img_click {
+    transform: rotate(90deg);
+    margin-right: -27px;
+    margin-bottom: -20px;
 }

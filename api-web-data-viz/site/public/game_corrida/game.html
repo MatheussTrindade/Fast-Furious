@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../image/icon2.png">
+    <title>Mine Game</title>
     <link rel="stylesheet" href="game.css">
 </head>
 
@@ -22,10 +23,12 @@
             <!-- <button class="stop-btn" onclick="stopTime()">Parar</button> -->
         </div>
         <div class="inferior">
-            <img src="src/startLock.png" alt="" width="70px" onclick="carro.ligar()">
-            <img src="src/acelerador.png" alt="" width="70px" onclick="carro.movimentar()">
+            <img src="src/key_car_teste.png" alt="" width="70px" onclick="carro.ligar()">
+            <div class="part_click">
+                <img src="src/clickclick_teste.gif" class="img_click" alt="" width="70px">
+                <img src="src/acelerador.png" alt="" width="70px" onclick="carro.movimentar()">
+            </div>
         </div>
-
     </div>
 
     <script src="../timer/timer.js"></script>
@@ -78,7 +81,7 @@
                 // 1100px até a linha de chegada
                 distanciaImagem += 60
                 corpo.innerHTML = `<img  style="position: absolute; margin-left: ${distanciaImagem}px; top: 120px;" src="src/teste_car-fotor-bg-remover-20230507193548.png" width="300px" alt="">`
-                if(carro.qtdCombustivel > 12) {
+                if (carro.qtdCombustivel > 12) {
                     // start()
                     console.log(`Corra mais rapido`)
                 } else {

@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/timerModel");
+var timerModel = require("../models/timerModel");
 
 var sessoes = [];
 

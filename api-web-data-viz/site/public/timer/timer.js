@@ -40,9 +40,9 @@ function stopTime() {
 
             mensagem_erro.innerHTML = "Corrida Comcluida, Indo para ranking";
 
-            // setTimeout(() => {
+            setTimeout(() => {
                 window.location = "../public/login.html";
-            // }, "2000")
+            }, "2000")
 
             // limparFormulario();
             // finalizarAguardar();
