@@ -50,13 +50,13 @@ body {
     height: 65px;
 }
 
-.start-btn {
+/* .start-btn {
     background-color: green;
 }
 
 .stop-btn {
     background-color: red;
-}
+} */
 
 button {
     height: 2.2em;
@@ -78,4 +78,52 @@ button:hover {
     transform: rotate(90deg);
     margin-right: -27px;
     margin-bottom: -20px;
+}
+
+#div_erros_login {
+    display: none
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 229px;
+    position: fixed;
+    border-radius: 4px;
+    border: #FFFF00 3px solid;
+    padding: 3px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 229px;
+    position: fixed;
+    border-radius: 4px;
+    border: #FFFF00 3px solid;
+    padding: 3px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }

@@ -23,8 +23,21 @@ tempo time,
 constraint fkUsuario foreign key (fkUsuario) references usuario (idUsuario)
 );
 
+insert into minegame values
+(null, 1, '00:00:05'),
+(null, 2, '00:00:08'),
+(null, 3, '00:00:03'),
+(null, 5, '00:00:04'),
+(null, 4, '00:00:04'),
+(null, 6, '00:00:06'),
+(null, 7, '00:00:07'),
+(null, 10, '00:00:07'),
+(null, 12, '00:00:10'),
+(null, 13, '00:00:13');
+
 select * from minegame;
 drop table minegame;
+truncate minegame;
 
 create table quiz (
 idQuiz int primary key auto_increment,
@@ -33,6 +46,21 @@ resultado varchar(7),
 constraint fkUsu foreign key (fkUsu) references usuario (idUsuario)
 );
 
+insert into quiz values
+(null, 1, 5),
+(null, 2, 7),
+(null, 3, 7),
+(null, 4, 7),
+(null, 5, 4),
+(null, 6, 6),
+(null, 7, 5),
+(null, 8, 5);
+
 select * from quiz;
 drop table quiz;
+truncate quiz;
 
+select m.tempo, u.idUsuario
+from minegame m 
+join usuario u on m.fkUsuario = u.idUsuario
+order by m.tempo asc limit 5;

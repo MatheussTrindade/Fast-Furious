@@ -27,6 +27,7 @@ function listar(req, res) {
 function stopTime(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var timer = req.body.timerServer;
+    var usuario = req.body.usuarioServer;
 
     // Faça as validações dos valores
     if (timer == undefined) {
@@ -34,7 +35,7 @@ function stopTime(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        timerModel.stopTime(timer)
+        timerModel.stopTime(usuario, timer)
             .then(
                 function (resultado) {
                     res.json(resultado);

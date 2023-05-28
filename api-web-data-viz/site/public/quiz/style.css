@@ -58,7 +58,7 @@ main {
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 button {
@@ -72,7 +72,14 @@ button {
   color: white;
   font: bold;
   font-weight: 600;
-}
+} 
+
+/* button:hover {
+  background-color: rgba(255, 60, 0);
+  color: #FFF;
+  transition: .4s;
+  padding: 5px;
+} */
 
 .finish {
   display: none;

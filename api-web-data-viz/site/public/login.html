@@ -31,7 +31,7 @@
               <img class="img_nav" src="image/icon2.png" alt="">
               <li><a class="nav_a" href="index.html">HOME</a></li>
               <!-- <li><a class="nav_a" href="#sobre">SOBRE</a></li> -->
-              <li><a class="nav_a" href="quiz/index.html">QUIZ</a></li>
+              <li><a class="nav_a" href="simulador.html">F&F</a></li>
             </ul>
           </div>
           <ul>
@@ -60,11 +60,11 @@
                         <div class="campos">
                             <input type="email" name="" id="email_input" placeholder="Email">
                             <input type="password" name="" id="senha_input" placeholder="Senha">
-                            <div class="conect">
+                            <!-- <div class="conect">
                                 <input class="checkbox" type="checkbox" name="" id=""><span class="save">Salvar
                                     informações
                                     de login</span>
-                            </div>
+                            </div> -->
                             <a href=""><span class="loading">Esqueceu a senha?</span></a>
                         </div>
                         <div class="div_button">
@@ -106,6 +106,7 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
+
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
@@ -126,7 +127,8 @@
             },
             body: JSON.stringify({
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -140,7 +142,7 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
                         window.location = "pagina1.html";

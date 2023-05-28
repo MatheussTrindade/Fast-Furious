@@ -10,13 +10,15 @@ function start() {
 }
 
 function stopTime() {
-    
+
     clearInterval(interval)
     sec = 0
     min = 0
     window.alert("Seu tempo foi: " + document.getElementById('timer').innerText)
     // cadastrarTimer()
-    var finaltime =  document.getElementById('timer').innerText;
+    var finaltime = document.getElementById('timer').innerText;
+    var IdUsuario = sessionStorage.ID_USUARIO;
+
 
     // Enviando o valor da nova input
     fetch("/raceTime/stopTime", {
@@ -28,7 +30,8 @@ function stopTime() {
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
 
-            timerServer: finaltime
+            timerServer: finaltime,
+            usuarioServer: IdUsuario
 
         })
     }).then(function (resposta) {
@@ -38,10 +41,10 @@ function stopTime() {
         if (resposta.ok) {
             cardErro.style.display = "block";
 
-            mensagem_erro.innerHTML = "Corrida Comcluida, Indo para ranking";
+            mensagem_erro.innerHTML = "Corrida Concluida, Indo para ranking";
 
             setTimeout(() => {
-                window.location = "../public/login.html";
+                window.location = "../public/pagina1.html";
             }, "2000")
 
             // limparFormulario();
@@ -86,49 +89,3 @@ function watch() {
     document.getElementById('timer').innerText = bettervision(hr) + ':' + bettervision(min) + ':' + bettervision(sec)
 }
 
-// function cadastrarTimer() {
-        
-    // var finaltime =  document.getElementById('timer').innerText;
-
-    //     // Enviando o valor da nova input
-    //     fetch("/corridaTimer/cadastrarTimer", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             // crie um atributo que recebe o valor recuperado aqui
-    //             // Agora vá para o arquivo routes/usuario.js
-
-    //             timeServer: finaltime
-
-    //         })
-    //     }).then(function (resposta) {
-
-    //         console.log("resposta: ", resposta);
-
-    //         if (resposta.ok) {
-    //             cardErro.style.display = "block";
-
-    //             mensagem_erro.innerHTML = "Corrida Comcluida, Indo para ranking";
-
-    //             setTimeout(() => {
-    //                 window.location = "../public/login.html";
-    //             }, "2000")
-
-    //             limparFormulario();
-    //             finalizarAguardar();
-    //         } else {
-    //             throw ("Ouve um erro no registro da sua corrida !");
-    //         }
-    //     }).catch(function (resposta) {
-    //         console.log(`#ERRO: ${resposta}`);
-    //         // finalizarAguardar();
-    //     });
-
-    //     return false;
-    // }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }

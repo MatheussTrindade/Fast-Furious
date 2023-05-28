@@ -32,9 +32,9 @@
                             </a>
                         </li>
                         <li class="lista">
-                            <a href="">
+                            <a href="quiz/index.html">
                                 <i class="uil uil-presentation-line"></i>
-                                <span class="lista">QUEM É VOCÊ</span>
+                                <span class="lista">QUIZ</span>
                             </a>
                         </li>
                         <li class="lista">
@@ -65,11 +65,14 @@
             <div class="trindade">
                 <div class="configNomeimg">
                     <div class="nomeNome">
-                        <a onclick="limparSessao()" href="">
-                            <img src="image/saida.png" style="width: 20px;">
-                        </a>
+                        <div onclick="limparSessao()">
+                            <a href="">
+                                <img src="image/saida.png" style="width: 20px;">
+                            </a>
+                        </div>
                         <div class="usuario">
-                            <span>NomeUsuario</span>
+                            <span id="b_usuario">NomeUsuario</span>
+                            <span id="a_usuario"></span>
                         </div>
                     </div>
 
@@ -78,7 +81,7 @@
                             <i class="uil uil-setting"></i>
                         </a>
                         <!-- <a href="../home/login.html"> -->
-                            <!-- <i class="uil uil-signout" style="color: #C63535;"></i> -->
+                        <!-- <i class="uil uil-signout" style="color: #C63535;"></i> -->
                         <!-- </a> -->
                     </div>
                 </div>
@@ -219,6 +222,16 @@
                             <img src="image/filmagens_fast.jpeg" alt="" width="700px" style="border-radius: 10px;">
                         </div>
                     </div>
+                    <div>
+                        <h4>CURIOSIDADE SOBRE O SITE</h4>
+                        <span>Uma curiosidade um tanto quanto interessante sobre o site é que a paleta de cores usadas
+                            no "MENU" é uma referência direta ao filme, a cor usada é #1327 e se pesquisarmos no google
+                            esses números o resultado que retornará é a casa de Dominic Toretto.
+                        </span>
+                        <div class="caixa_img">
+                            <img src="image/1327.jpg" alt="" width="700px" style="border-radius: 10px;">
+                        </div>
+                    </div>
                     <!-- <div class="filmes">
                     <h4>ORDEM DOS FILMES</h4>
                     <span class="orden_filme">
@@ -244,6 +257,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    a_usuario.innerHTML = sessionStorage.ID_USUARIO;
+
+
     const labels = [
         'Mundial',
     ];
@@ -326,7 +343,8 @@
 
         sessionStorage.clear();
 
-        window.location = `index.html`
+        window.location = "index.html"
+
     }
 </script>
 

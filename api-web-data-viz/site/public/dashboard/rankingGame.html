@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking | Game</title>
+    <link rel="stylesheet" href="../css/ranking.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="../image/icon2.png">
+    <script src="../js/funcoes.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <!--header inicio-->
+
+        <head>
+            <nav class="nav_one">
+                <div class="navHeader">
+                    <ul>
+                        <img class="img_nav" src="../image/icon2.png" alt="">
+                        <li><a class="nav_a" href="index.html">HOME</a></li>
+                        <!-- <li><a class="nav_a" href="#sobre">SOBRE</a></li> -->
+                        <li><a class="nav_a" href="simulador.html">F&F</a></li>
+                    </ul>
+                </div>
+                <ul>
+                    <li><a class="nav_ac" href="cadastro.html"><button class="button_header">CADASTRO</button></a></li>
+                    <li><a class="nav_al" href="login.html"><button class="button_header">LOGIN</button></a></li>
+                </ul>
+            </nav>
+            <!-- <hr> -->
+        </head>
+
+        <!--header fim-->
+
+        <div id="grafico1" class="grafico1">
+            <h3 class="tituloGraficos">
+                <span id="tituloAquario"></span>
+            </h3>
+            <div class="graph">
+                <canvas id="myChartCanvas"></canvas>
+            </div>
+            <div class="label-captura">
+                <p id="avisoCaptura" style="color: white"></p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    let proximaAtualizacao;
+
+    window.onload = obterDadosGraficos();
+
+    function obterDadosGraficos(idUsuario) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/ranking/ultimos`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idUsuario);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, idUsuario) {
+
+        console.log('Iniciando a plotagem do grádico...');
+
+        let labels = [];
+
+        let dados = {
+            lavels: labels,
+            datasets: [{
+                label: '1° Lugar',
+                data: [],
+                fill: false,
+                borderColor: 'rbg(25,25,112)',
+                tension: 0.1
+            },
+            {
+                label: '2° Lugar',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(34,139,34)',
+                tension: 0.1
+            },
+            {
+                label: '3° Lugar',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(210,105,30))',
+                tension: 0.1
+            },
+            {
+                label: '4° Lugar',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(128,0,128)',
+                tension: 0.1
+            },
+            {
+                label: '5° Lugar',
+                data: [],
+                fill: false,
+                borderColor: 'rgb(178,34,34)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.ranking);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas`),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+
+    }
+
+    function atualizarGrafico(idUsuario, dados, myChart) {
+
+
+        fetch(`/ranking/tempo-real`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico:`);
+                    console.log(dados);
+
+                    let avisoCaptura = document.getElementById(`avisoCaptura`)
+                    avisoCaptura.innerHTML = ""
+
+                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                        console.log("---------------------------------------------------------------")
+                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        console.log("Horário do novo dado capturado:")
+                        console.log(novoRegistro[0].momento_grafico)
+                        console.log("Horário do último dado capturado:")
+                        console.log(dados.labels[dados.labels.length - 1])
+                        console.log("---------------------------------------------------------------")
+                    } else {
+                        dados.labels.shift();
+                        dados.labels.push(novoRegistro[0].momento_grafico);
+
+                        dados.datasets[0].data.shift();
+                        dados.datasets[0].data.push(novoRegistro[0].ranking);
+
+                        myChart.update();
+                    }
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart),);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Error na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    // verificar_autenticacao();
+
+</script>
