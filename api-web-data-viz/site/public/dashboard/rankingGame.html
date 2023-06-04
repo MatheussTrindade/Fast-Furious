@@ -7,49 +7,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking | Game</title>
     <link rel="stylesheet" href="../css/ranking.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" href="../image/icon2.png">
     <script src="../js/funcoes.js"></script>
 
 </head>
 
+<!-- scripts do Chart.js - 2022-1 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://kit.fontawesome.com/3f0399636b.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+
 <body>
 
-    <div>
-        <!--header inicio-->
+    <!--header inicio-->
 
-        <head>
-            <nav class="nav_one">
-                <div class="navHeader">
+    <!-- PAG MENU -->
+    <div class="container">
+        <div class="lateral">
+            <!-- parte de cima -->
+            <div class="listaBaixo">
+                <div class="navegacão">
+                    <div class="navHeader">
+                        <img src="../image/icon2.png">
+                        <span>MENU</span>
+                    </div>
                     <ul>
-                        <img class="img_nav" src="../image/icon2.png" alt="">
-                        <li><a class="nav_a" href="index.html">HOME</a></li>
-                        <!-- <li><a class="nav_a" href="#sobre">SOBRE</a></li> -->
-                        <li><a class="nav_a" href="simulador.html">F&F</a></li>
+                        <li class="lista destaque">
+                            <a href="">
+                                <i class="uil uil-create-dashboard"></i>
+                                <span class="lista">CURIOSIDADES</span>
+                            </a>
+                        </li>
+                        <li class="lista">
+                            <a href="quiz/index.html">
+                                <i class="uil uil-presentation-line"></i>
+                                <span class="lista">QUIZ</span>
+                            </a>
+                        </li>
+                        <li class="lista">
+                            <a href="game_corrida/game.html">
+                                <i class="uil uil-history"></i>
+                                <span class="lista">MINI GAME</span>
+                            </a>
+                        </li>
                     </ul>
+
                 </div>
-                <ul>
-                    <li><a class="nav_ac" href="cadastro.html"><button class="button_header">CADASTRO</button></a></li>
-                    <li><a class="nav_al" href="login.html"><button class="button_header">LOGIN</button></a></li>
-                </ul>
-            </nav>
-            <!-- <hr> -->
-        </head>
-
-        <!--header fim-->
-
-        <div id="grafico1" class="grafico1">
-            <h3 class="tituloGraficos">
-                <span id="tituloAquario"></span>
-            </h3>
-            <div class="graph">
-                <canvas id="myChartCanvas"></canvas>
             </div>
-            <div class="label-captura">
-                <p id="avisoCaptura" style="color: white"></p>
+            <div class="trindade">
+                <div class="configNomeimg">
+                    <div class="nomeNome">
+                        <div onclick="limparSessao()">
+                            <a href="">
+                                <img src="../image/saida.png" style="width: 20px;">
+                            </a>
+                        </div>
+                        <div class="usuario">
+                            <span id="b_usuario">NomeUsuario</span>
+                            <span id="a_usuario"></span>
+                        </div>
+                    </div>
+
+                    <div class="configgg">
+                        <a href="#">
+                            <i class="uil uil-setting"></i>
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- <hr> -->
 
+        <!--header fim-->
+        <div class="tela">
+            <div class="container2">
+                <h1>RANKING</h1>
+
+                <div id="grafico1" class="grafico1">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario"></span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <!-- <div class="label-captura">
+                    <p id="avisoCaptura" style="color: white"></p>
+                </div> -->
+                    <div class="kpi">
+                        <span id="campeao" class="campeao"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
@@ -59,7 +111,7 @@
 </html>
 
 <script>
-    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
@@ -87,82 +139,182 @@
             });
     }
 
-    function plotarGrafico(resposta, idUsuario) {
+    function obterDadosGrafico(idAquario) {
 
-        console.log('Iniciando a plotagem do grádico...');
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
 
-        let labels = [];
 
-        let dados = {
-            lavels: labels,
-            datasets: [{
-                label: '1° Lugar',
-                data: [],
-                fill: false,
-                borderColor: 'rbg(25,25,112)',
-                tension: 0.1
-            },
-            {
-                label: '2° Lugar',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(34,139,34)',
-                tension: 0.1
-            },
-            {
-                label: '3° Lugar',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(210,105,30))',
-                tension: 0.1
-            },
-            {
-                label: '4° Lugar',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(128,0,128)',
-                tension: 0.1
-            },
-            {
-                label: '5° Lugar',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(178,34,34)',
-                tension: 0.1
-            }]
+        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    plotarGrafico(resposta, idAquario);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função plotarGrafico usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função plotarGrafico também invoca a função atualizarGrafico
+
+
+    function plotarGrafico(resposta, idAquario) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    label: '',
+
+                    data: []
+                },
+                {
+                    yAxisID: 'y-totalpersonagens',
+                    label: 'Top 5 Usuario mais rapidos',
+                    backgroundColor: ['#4B0082', '#FFFF00', '#FF4500', '#00FF00', '#FF0000'],
+                    fill: true,
+                    data: []
+                }
+            ]
         };
 
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
 
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.ranking);
+            dados.labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.nome);
+            dados.datasets[1].data.push(registro.tempo);
+            console.log(registro.tempo)
+
+
         }
 
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
+        console.log(JSON.stringify(dados));
 
-        const config = {
-            type: 'bar',
+        var ctx = myChart.getContext('2d');
+        window.myChart = Chart.Bar(ctx, {
             data: dados,
-        };
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                animation: { duration: 900 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Os Usuarios mais Rapidos no mine game'
+                },
 
-        let myChart = new Chart(
-            document.getElementById(`myChartCanvas`),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-totalpersonagens',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 15,
+                            min: 0
+                        }
+                    }, {
+                        display: false,
+                    }],
+                }
+            }
+        });
 
     }
+    // function plotarGrafico(resposta, idUsuario) {
+
+    //     console.log('Iniciando a plotagem do grádico...');
+
+    //     let labels = [];
+
+    //     let dados = {
+    //         lavels: labels,
+    //         datasets: [{
+    //             label: '1° Lugar',
+    //             data: [],
+    //             fill: true,
+    //             borderColor: 'rbg(25,25,112)',
+    //             background: ['#FF4500']
+    //         },
+    //         {
+    //             label: '2° Lugar',
+    //             data: [],
+    //             fill: true,
+    //             borderColor: 'rgb(34,139,34)',
+    //             background: ['#FF4500']
+
+    //         },
+    //         {
+    //             label: '3° Lugar',
+    //             data: [],
+    //             fill: true,
+    //             borderColor: 'rgb(210,105,30))',
+    //         },
+    //         {
+    //             label: '4° Lugar',
+    //             data: [],
+    //             fill: true,
+    //             borderColor: 'rgb(128,0,128)',
+    //         },
+    //         {
+    //             label: '5° Lugar',
+    //             data: [],
+    //             fill: true,
+    //             borderColor: 'rgb(178,34,34)',
+    //             background: ['#FF4500']
+    //         }
+    //         ]
+    //     };
+
+    //     console.log('----------------------------------------------')
+    //     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    //     console.log(resposta)
+
+    //     for (i = 0; i < resposta.length; i++) {
+    //         var registro = resposta[i];
+    //         labels.push(registro.idUsuario);
+    //         dados.datasets[0].data.push(registro.tempo);
+    //     }
+
+    //     console.log('----------------------------------------------')
+    //     console.log('O gráfico será plotado com os respectivos valores:')
+    //     console.log('Labels:')
+    //     console.log(labels)
+    //     console.log('Dados:')
+    //     console.log(dados.datasets)
+    //     console.log('----------------------------------------------')
+
+    //     const config = {
+    //         type: 'bar',
+    //         data: dados,
+    //     };
+
+    //     let myChart = new Chart(
+    //         document.getElementById(`myChartCanvas`),
+    //         config
+    //     );
+
+    //     setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+
+    // }
 
     function atualizarGrafico(idUsuario, dados, myChart) {
 
@@ -178,7 +330,7 @@
                     let avisoCaptura = document.getElementById(`avisoCaptura`)
                     avisoCaptura.innerHTML = ""
 
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                    if (novoRegistro[0].tempo == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
                         console.log("Como não há dados novos para captura, o gráfico não atualizará.")
                         avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
@@ -189,7 +341,7 @@
                         console.log("---------------------------------------------------------------")
                     } else {
                         dados.labels.shift();
-                        dados.labels.push(novoRegistro[0].momento_grafico);
+                        dados.labels.push(novoRegistro[0].tempo);
 
                         dados.datasets[0].data.shift();
                         dados.datasets[0].data.push(novoRegistro[0].ranking);
@@ -212,6 +364,31 @@
     }
 
 
+    window.onload = ranking();
+
+    function ranking() {
+        var Usuario = sessionStorage.NOME_USUARIO;
+        fetch("/ranking/ranking", {
+            method: "post",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+
+                UsuarioServer: Usuario,
+
+            }),
+        }).then((ranking) => {
+            ranking.json().then((dados) => {
+                for (i = 0; i < dados.length; i++) {
+                    console.log(dados)
+                    campeao.innerHTML = `<span>O Campeão do mine game<span class="span">${dados[i].nome} <img src="../image/trofeu.png" width="30px" </span></span>`
+                }
+            })
+        })
+    }
+
+            // <img src="../image/trofeu.png" alt="" width="30px">
     // verificar_autenticacao();
 
 </script>

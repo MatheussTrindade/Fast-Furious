@@ -11,4 +11,7 @@ router.get("/tempo-real", function (req, res) {
     rankingController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.post("/ranking", function (req, res){
+    rankingController.ranking(req, res);
+} )
 module.exports = router;

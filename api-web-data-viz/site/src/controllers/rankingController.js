@@ -42,8 +42,25 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function ranking(req, res) {
+    var Usuario = req.body.UsuarioServer
+    console.log(`Plotando o campeão !`)
+    rankingModel.ranking(Usuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as estufas da empresa..", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     buscarMedidasEmTempoReal,
-    buscarUltimasMedidas
+    buscarUltimasMedidas,
+    ranking
 }

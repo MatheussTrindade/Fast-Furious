@@ -12,6 +12,11 @@ P_escolha varchar(50)
 
 select * from usuario;
 
+UPDATE usuario
+SET nome = 'Ricardo Silva'
+WHERE idUsuario = 13;
+
+
 drop table usuario;
 
 truncate table usuario;
@@ -60,7 +65,16 @@ select * from quiz;
 drop table quiz;
 truncate quiz;
 
-select m.tempo, u.idUsuario
+select ROUND(tempo,0) as 'tempo', u.nome
 from minegame m 
 join usuario u on m.fkUsuario = u.idUsuario
-order by m.tempo asc limit 5;
+order by m.tempo 
+asc limit 5;
+
+select (P_escolha) from usuario group by P_escolha;
+
+select ROUND(tempo,0) as 'tempo', u.nome
+from minegame m 
+join usuario u on m.fkUsuario = u.idUsuario
+order by m.tempo 
+asc limit 1;
