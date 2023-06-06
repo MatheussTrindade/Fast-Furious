@@ -28,7 +28,7 @@ function listar(req, res) {
 function finish(req, res) {
     
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var questionsCorrect = req.body.questionsCorrectServer;
+    var questionsCorrect = req.body.questionsCorrectServer;z
 
     // Faça as validações dos valores
     if (questionsCorrect == undefined) {

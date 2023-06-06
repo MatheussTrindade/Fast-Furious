@@ -44,7 +44,7 @@ function stopTime() {
             mensagem_erro.innerHTML = "Corrida Concluida, Indo para ranking";
 
             setTimeout(() => {
-                window.location = "../public/pagina1.html";
+                window.location = "../dashboard/rankingGame.html";
             }, "2000")
 
             // limparFormulario();

@@ -61,6 +61,7 @@ insert into quiz values
 (null, 7, 5),
 (null, 8, 5);
 
+
 select * from quiz;
 drop table quiz;
 truncate quiz;
@@ -72,6 +73,7 @@ order by m.tempo
 asc limit 5;
 
 select (P_escolha) from usuario group by P_escolha;
+
 
 select ROUND(tempo,0) as 'tempo', u.nome
 from minegame m 
