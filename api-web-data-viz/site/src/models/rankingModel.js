@@ -59,7 +59,7 @@ function ranking() {
         from minegame m 
         join usuario u on m.fkUsuario = u.idUsuario
         order by m.tempo 
-        asc limit 1;
+        asc limit 3;
         `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÂO FOI DEFINIDO EM app.js\n");

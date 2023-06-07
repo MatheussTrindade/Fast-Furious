@@ -28,15 +28,18 @@ function listar(req, res) {
 function finish(req, res) {
     
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var questionsCorrect = req.body.questionsCorrectServer;z
+    var corretas = req.body.questionsCorrectServer;
+    var usu = req.body.usuarioServer;
+
+    console.log(corretas)
 
     // Faça as validações dos valores
-    if (questionsCorrect == undefined) {
+    if (corretas == undefined) {
         res.status(400).send("Seu resultado está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        quizModel.finish(questionsCorrect)
+        quizModel.finish(usu, corretas)
             .then(
                 function (resultado) {
                     res.json(resultado);

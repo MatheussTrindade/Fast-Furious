@@ -67,4 +67,31 @@ export default [
       { option: "Velozes e Furiosos 4", correct: false },
     ],
   },
+  {
+    question: "Qual era o sanduíche que o Brian comia toda vez que ia na lanchonete dos Torettos?",
+    answers: [
+      { option: "Sanduíche de Pernil", correct: false },
+      { option: "Sanduíche de Almondêgas", correct: false },
+      { option: "Sanduíche de presunto e queijo", correct: false },
+      { option: "Sanduíche de Atum", correct: true },
+    ],
+  },
+  {
+    question: "O que Toretto diz quando o Hobbs fala: `diga o seu preço dom`?",
+    answers: [
+      { option: "10 milhões de dolares", correct: false },
+      { option: "1327", correct: true },
+      { option: "Meu Dodge charger", correct: false },
+      { option: "Quero minha casa de volta", correct: false },
+    ],
+  },
+  {
+    question: "Qual o nome completo de Brian?",
+    answers: [
+      { option: "Brian Ear Spiner", correct: false },
+      { option: "Brian toretto", correct: false },
+      { option: "Brian Liam Ulisses", correct: false },
+      { option: "Brian O'Conner", correct: true },
+    ],
+  },
 ];

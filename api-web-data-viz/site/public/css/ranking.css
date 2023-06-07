@@ -223,7 +223,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     padding: 5px;
-    color: red;
+    color: green;
 }
 
 .graph {
@@ -254,18 +254,98 @@ body {
 
 .campeao {
     display: flex;
-    background-color: #1327;
+    background-color: #FFF;
     width: 18vw;
     height: 70px;
-    border-radius: 20px;
     margin-top: 20px;
+}
+
+.segundo {
+    display: flex;
+    background-color: #FFF;
+    width: 18vw;
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 20px
+}
+
+.terceiro {
+    display: flex;
+    background-color: #FFF;
+    width: 18vw;
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 20px
 }
 
 .container2 {
     display: flex;
     flex-direction: column;
-    width: 41vw;
+    width: 60vw;
     height: 40vw;
     background-color: rgba(0, 0, 0, 0.09);
-    border-radius: 96px;
+    border-radius: 50px;
+}
+
+.kpi {
+    display: flex;
+    background-color: #FFF;
+    border-radius: 20px;
+    height: 130px;
+}
+
+.segundo span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+    width: 18vw;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.segundo .span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+    width: 18vw;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+    color: blue;
+}
+
+.terceiro span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+    width: 18vw;
+    font-size: 18px;
+    font-weight: 600
+}
+
+.terceiro .span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+    width: 18vw;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+    color: red;
+}
+
+.lugar1 {
+    padding: 20px 0 0 0;
+}
+
+.lugar3 {
+    padding: 30px 0 0 0;
 }

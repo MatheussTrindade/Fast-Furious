@@ -188,3 +188,17 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.grafico {
+    display: flex;
+    box-sizing: border-box;
+    height: 20vw;
+    width: 50vw;
+}
+
+.graph {
+    display: flex;
+    box-sizing: border-box;
+    height: 20vw;
+    width: 50vw;
+}

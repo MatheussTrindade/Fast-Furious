@@ -33,22 +33,28 @@
                         <span>MENU</span>
                     </div>
                     <ul>
-                        <li class="lista destaque">
-                            <a href="">
+                        <li class="lista ">
+                            <a href="../pagina1.html">
                                 <i class="uil uil-create-dashboard"></i>
                                 <span class="lista">CURIOSIDADES</span>
                             </a>
                         </li>
                         <li class="lista">
-                            <a href="quiz/index.html">
+                            <a href="../quiz/index.html">
                                 <i class="uil uil-presentation-line"></i>
                                 <span class="lista">QUIZ</span>
                             </a>
                         </li>
                         <li class="lista">
-                            <a href="game_corrida/game.html">
+                            <a href="../game_corrida/game.html">
                                 <i class="uil uil-history"></i>
                                 <span class="lista">MINI GAME</span>
+                            </a>
+                        </li>
+                        <li class="lista destaque">
+                            <a href="../dashboard/rankingGame.html">
+                                <i class="uil uil-history"></i>
+                                <span class="lista">RANKING</span>
                             </a>
                         </li>
                     </ul>
@@ -96,12 +102,22 @@
                     <p id="avisoCaptura" style="color: white"></p>
                 </div> -->
                     <div class="kpi">
-                        <span id="campeao" class="campeao"></span>
+                        <div class="lugar1">
+                            <span id="segundo" class="segundo"></span>
+                        </div>
+                        <div class="lugar2">
+                            <span id="campeao" class="campeao"></span>
+                        </div>
+                        <div class="lugar3">
+                            <span id="terceiro" class="terceiro"></span>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
         </div>
+        <img src="" alt="">
 
     </div>
 
@@ -129,29 +145,6 @@
                     resposta.reverse();
 
                     plotarGrafico(resposta, idUsuario);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    function obterDadosGrafico(idAquario) {
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    plotarGrafico(resposta, idAquario);
-
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -382,7 +375,10 @@
             ranking.json().then((dados) => {
                 for (i = 0; i < dados.length; i++) {
                     console.log(dados)
-                    campeao.innerHTML = `<span>O Campeão do mine game<span class="span">${dados[i].nome} <img src="../image/trofeu.png" width="30px" </span></span>`
+                    campeao.innerHTML = `<span>O Campeão do mine game<span class="span">${dados[0].nome} <img src="../image/taca-de-ouro.png" width="30px" </span></span>`
+                    segundo.innerHTML = `<span>Segundo Lugar<span class="span">${dados[1].nome} <img src="../image/taca-de-prata.png" width="30px" </span></span>`
+                    terceiro.innerHTML = `<span>Terceiro Lugar<span class="span">${dados[2].nome} <img src="../image/terceiro_lugar.png" width="30px" </span></span>`
+
                 }
             })
         })

@@ -70,10 +70,12 @@ function finish() {
   content.style.display = "none";
   contentFinish.style.display = "flex";
   questionsCorrect
+  console.log(questionsCorrect);
+  var usuario = sessionStorage.ID_USUARIO;
 
 
   fetch("/usuarioQuiz/finish", {
-    method: "POST",
+    method: "post",
     headers: {
       "Content-Type": "application/json"
     },
@@ -81,7 +83,8 @@ function finish() {
       // crie um atributo que recebe o valor recuperado aqui
       // Agora vá para o arquivo routes/usuario.js
 
-      questionsCorrectServer: questionsCorrect
+      questionsCorrectServer: questionsCorrect,
+      usuarioServer: usuario
 
     })
   }).then(function (resposta) {
@@ -91,7 +94,7 @@ function finish() {
     if (resposta.ok) {
       cardErro.style.display = "block";
 
-      mensagem_erro.innerHTML = "Obrigado por responder o Quiz...Resultado enviado para dashboard";
+      mensagem_erro.innerHTML = `Obrigado por responder o Quiz...<br>Você acertou ${(questionsCorrect / 10) * 100}%`;
 
       // setTimeout(() => {
       //   window.location = "login.html";
